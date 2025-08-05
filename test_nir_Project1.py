@@ -13,6 +13,11 @@ def test_get_breeds_returns_200():
     response = requests.get(BASE_URL, headers=HEADERS)
     assert response.status_code == 200, f"Expected 200 OK, got {response.status_code}"
     assert isinstance(response.json(), list), "Expected JSON response to be a list"
+    
+# checking response code=200 and printing
+
+    assert response.status_code == 200, f"Expected 200, got {response.status_code}"
+print("\n✅ Status code is 200 OK.")
 
 # -------------------------
 # ❌ POST Method Test (expected to fail on public Dog API)
@@ -44,3 +49,4 @@ def test_delete_breed_not_allowed():
     assert response.status_code in [403, 405, 404], (
         f"Expected 403/405/404, got {response.status_code}"
     )
+
